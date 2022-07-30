@@ -146,12 +146,7 @@ const App: React.FC = () => {
           new ViewerContentToolsProvider(),
           new ViewerStatusbarItemsProvider(),
         ]}
-        extensions={[
-          new LocalExtensionProvider({
-            manifestPromise: LocalExtension.manifestPromise,
-            main: LocalExtension.main,
-          })
-        ]}
+        extensions={[new LocalExtensionProvider(LocalExtension)]}
       />
     </div>
   );

@@ -1,3 +1,5 @@
 packages:
   - "my-extension"
   - "react-viewer"
+  - "ts-viewer"
+  

@@ -1,0 +1,15 @@
+{
+  "authorization": {
+    "clientId": "",
+    "scope": "",
+    "redirectUri": "",
+    "postSignoutRedirectUri": "",
+    "responseType": "code",
+    "authority": "https://ims.bentley.com"
+  },
+  "iTwinId": "",
+  "iModelId": "",
+  "map": {
+    "bingKey": ""
+  }
+}
