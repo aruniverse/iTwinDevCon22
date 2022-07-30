@@ -1,0 +1,28 @@
+{
+  "name": "itwindevcon22",
+  "description": "Monorepo for iTwin Dev Con 22 Session Extending iTwin.js Applications",
+  "version": "0.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aruniverse/iTwinDevCon22.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aruniverse/iTwinDevCon22/issues"
+  },
+  "homepage": "https://github.com/aruniverse/iTwinDevCon22#readme",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "pnpm build --filter my-extension"
+  },
+  "devDependencies": {
+    "cospace": "latest"
+  },
+  "pnpm": {
+    "overrides": {
+      "react-error-overlay": "6.0.9"
+    }
+  }
+}
