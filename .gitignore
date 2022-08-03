@@ -30,3 +30,5 @@ cursors/
 images/
 locales/
 sprites/
+
+!my-extension/assets/

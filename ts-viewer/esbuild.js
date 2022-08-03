@@ -26,6 +26,7 @@ esbuild
       ".ttf": "dataurl",
       ".woff2": "dataurl",
       ".cur": "dataurl",
+      ".png": "dataurl",
     },
   })
   .catch(() => process.exit(1));
