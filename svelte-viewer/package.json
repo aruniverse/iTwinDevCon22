@@ -1,0 +1,56 @@
+{
+  "name": "viewer-sample-svelte",
+  "version": "0.0.1",
+  "description": "A Svelte implementation of the iTwin Viewer.",
+  "author": {
+    "name": "Bentley Systems, Inc.",
+    "url": "http://www.bentley.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "svelte-kit sync",
+    "build:prod": "vite build",
+    "package": "svelte-kit package",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "prettier --check --plugin-search-dir=. . && eslint .",
+    "format": "prettier --write --plugin-search-dir=. ."
+  },
+  "dependencies": {
+    "@bentley/icons-generic-webfont": "^1.0.15",
+    "@itwin/appui-abstract": "^3.2.0",
+    "@itwin/browser-authorization": "^0.5.1",
+    "@itwin/core-bentley": "^3.2.0",
+    "@itwin/core-common": "^3.2.0",
+    "@itwin/core-frontend": "^3.2.0",
+    "@itwin/core-geometry": "^3.2.0",
+    "@itwin/core-orbitgt": "^3.2.0",
+    "@itwin/core-quantity": "^3.2.0",
+    "@itwin/imodels-access-frontend": "^1.0.1",
+    "@itwin/imodels-client-management": "^1.0.1",
+    "@itwin/presentation-common": "^3.2.0",
+    "my-extension": "workspace:*",
+    "@itwin/webgl-compatibility": "^3.2.0",
+    "dotenv-flow": "^3.2.0"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "next",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "prettier": "^2.6.2",
+    "prettier-plugin-svelte": "^2.7.0",
+    "svelte": "^3.44.0",
+    "svelte-check": "^2.7.1",
+    "svelte-preprocess": "^4.10.6",
+    "tslib": "^2.3.1",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.0"
+  },
+  "type": "module"
+}

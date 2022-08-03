@@ -19,7 +19,7 @@ import { PresentationRpcInterface } from "@itwin/presentation-common";
 import AuthClient from "./clients/Authorization";
 import ConfigClient, { ViewerConfiguration } from "./clients/Configuration";
 import { addViewport } from "./Viewport";
-import LocalExtension from "my-extension";
+import MyExtension from "my-extension";
 import "@bentley/icons-generic-webfont/dist/bentley-icons-generic-webfont.css";
 
 /**
@@ -48,7 +48,7 @@ const signIn = async (authConfig: BrowserAuthorizationClientConfiguration) => {
  */
 const addExtensions = async () => {
   await IModelApp.extensionAdmin.addExtension(
-    new LocalExtensionProvider(LocalExtension)
+    new LocalExtensionProvider(MyExtension)
   );
 };
 

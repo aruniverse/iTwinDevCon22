@@ -32,3 +32,5 @@ locales/
 sprites/
 
 !my-extension/assets/
+
+.svelte-kit/

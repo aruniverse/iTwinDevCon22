@@ -19,7 +19,7 @@ import {
   ViewerStatusbarItemsProvider,
 } from "@itwin/web-viewer-react";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import LocalExtension from "my-extension";
+import MyExtension from "my-extension";
 
 import { history } from "./history";
 
@@ -146,7 +146,7 @@ const App: React.FC = () => {
           new ViewerContentToolsProvider(),
           new ViewerStatusbarItemsProvider(),
         ]}
-        extensions={[new LocalExtensionProvider(LocalExtension)]}
+        extensions={[new LocalExtensionProvider(MyExtension)]}
       />
     </div>
   );
