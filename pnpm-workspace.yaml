@@ -1,5 +1,5 @@
 packages:
-  - "my-extension"
+  - "iot-marker-extension"
   - "react-viewer"
   - "ts-viewer"
   - "svelte-viewer"

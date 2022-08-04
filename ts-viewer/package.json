@@ -42,6 +42,6 @@
     "@itwin/core-quantity": "^3.2.0",
     "@itwin/presentation-common": "^3.2.0",
     "@itwin/webgl-compatibility": "^3.2.0",
-    "my-extension": "workspace:*"
+    "iot-marker-extension": "workspace:*"
   }
 }

@@ -19,7 +19,7 @@ import {
   ViewerStatusbarItemsProvider,
 } from "@itwin/web-viewer-react";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import MyExtension from "my-extension";
+import IoTMarkerExtension from "iot-marker-extension";
 
 import { history } from "./history";
 
@@ -146,7 +146,7 @@ const App: React.FC = () => {
           new ViewerContentToolsProvider(),
           new ViewerStatusbarItemsProvider(),
         ]}
-        extensions={[new LocalExtensionProvider(MyExtension)]}
+        extensions={[new LocalExtensionProvider(IoTMarkerExtension)]}
       />
     </div>
   );

@@ -28,7 +28,7 @@
     "@itwin/web-viewer-react": "^3.0.6",
     "@itwin/webgl-compatibility": "^3.2.6",
     "history": "^4.10.1",
-    "my-extension": "workspace:*",
+    "iot-marker-extension": "workspace:*",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.8"

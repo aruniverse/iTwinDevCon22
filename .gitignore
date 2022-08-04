@@ -31,6 +31,6 @@ images/
 locales/
 sprites/
 
-!my-extension/assets/
+!iot-marker-extension/assets/
 
 .svelte-kit/

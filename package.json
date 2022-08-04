@@ -15,7 +15,7 @@
   "homepage": "https://github.com/aruniverse/iTwinDevCon22#readme",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "postinstall": "pnpm build --filter my-extension"
+    "postinstall": "pnpm build --filter iot-marker-extension"
   },
   "devDependencies": {
     "cospace": "latest"

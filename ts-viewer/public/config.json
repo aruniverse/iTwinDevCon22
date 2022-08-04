@@ -2,8 +2,8 @@
   "authorization": {
     "clientId": "",
     "scope": "",
-    "redirectUri": "",
-    "postSignoutRedirectUri": "",
+    "redirectUri": "http://localhost:3001/",
+    "postSignoutRedirectUri": "http://localhost:3001/",
     "responseType": "code",
     "authority": "https://ims.bentley.com"
   },
