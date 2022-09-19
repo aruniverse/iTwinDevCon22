@@ -7,6 +7,7 @@ Code for the iTwin DevCon 2022 Session, _Extending iTwin.js Applications_, with 
 This monorepo contains:
 
 - iTwin Viewers written in:
+
   - [Vanilla TypeScript](./ts-viewer/)
   - [React](./react-viewer/)
   - [Svelte](./svelte-viewer/)
@@ -41,16 +42,20 @@ Note, you can use the same client for all 3 viewers, as long as you have properl
 
 - Add your environment variables to the [config file](./ts-viewer/public/config.json)
   - Assumes will run on `localhost:3001`
-- Run `pnpm build` and then `pnpm serve`
+- `cd ts-viewer`
+- `pnpm build`
+- `pnpm serve`
 
 ### React Viewer
 
 - Add your environment variables to the [env file](./react-viewer/.env)
   - Assumes will run on `localhost:3000`
-- Run `pnpm start`
+- `cd react-viewer`
+- `pnpm start`
 
 ### Svelte Viewer
 
 - Add your environment variables to the [env file](./svelte-viewer/.env)
   - Assumes will run on `localhost:3002`
-- Run `pnpm dev`
+- `cd svelte-viewer`
+- `pnpm dev`
