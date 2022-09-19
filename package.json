@@ -1,21 +1,21 @@
 {
   "name": "itwindevcon22",
-  "description": "Monorepo for iTwin Dev Con 22 Session Extending iTwin.js Applications",
   "version": "0.0.0",
   "private": true,
+  "description": "Monorepo for iTwin Dev Con 22 Session Extending iTwin.js Applications",
+  "homepage": "https://github.com/aruniverse/iTwinDevCon22#readme",
+  "bugs": {
+    "url": "https://github.com/aruniverse/iTwinDevCon22/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aruniverse/iTwinDevCon22.git"
   },
+  "license": "MIT",
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/aruniverse/iTwinDevCon22/issues"
-  },
-  "homepage": "https://github.com/aruniverse/iTwinDevCon22#readme",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "postinstall": "pnpm build --filter iot-marker-extension"
+    "postinstall": "pnpm --filter iot-marker-extension build"
   },
   "devDependencies": {
     "cospace": "latest"

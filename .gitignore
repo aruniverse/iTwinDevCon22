@@ -34,3 +34,4 @@ sprites/
 !iot-marker-extension/assets/
 
 .svelte-kit/
+svelte-viewer/static

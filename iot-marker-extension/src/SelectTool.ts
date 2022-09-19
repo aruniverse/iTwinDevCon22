@@ -1,8 +1,3 @@
-/*---------------------------------------------------------------------------------------------
- * Copyright (c) Bentley Systems, Incorporated. All rights reserved.
- * See LICENSE.md in the project root for license terms and full copyright notice.
- *--------------------------------------------------------------------------------------------*/
-
 import {
   BeButtonEvent,
   CoordinateLockOverrides,
@@ -12,8 +7,7 @@ import {
   ExtensionHost,
 } from "@itwin/core-extension";
 
-/** Minimalistic extension tool for a user to pick a set of elements of interest
- */
+/** Minimalistic extension tool for a user to pick a set of elements of interest */
 export class ExtensionSelectTool extends PrimitiveTool {
   public static override toolId = "TestExtension.Select";
   public static override iconSpec = "icon-cursor";

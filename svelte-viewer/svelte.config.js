@@ -1,8 +1,3 @@
-/*---------------------------------------------------------------------------------------------
- * Copyright (c) Bentley Systems, Incorporated. All rights reserved.
- * See LICENSE.md in the project root for license terms and full copyright notice.
- *--------------------------------------------------------------------------------------------*/
-
 import adapter from "@sveltejs/adapter-auto";
 import preprocess from "svelte-preprocess";
 

@@ -1,7 +1,7 @@
 {
   "authorization": {
     "clientId": "",
-    "scope": "",
+    "scope": "imodelaccess:read imodels:read realitydata:read",
     "redirectUri": "http://localhost:3001/",
     "postSignoutRedirectUri": "http://localhost:3001/",
     "responseType": "code",

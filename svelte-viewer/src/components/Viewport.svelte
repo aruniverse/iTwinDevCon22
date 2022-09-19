@@ -6,8 +6,10 @@ See LICENSE.md in the project root for license terms and full copyright notice.
 <script lang="ts">
   import {
     CheckpointConnection,
+    FitViewTool,
     IModelApp,
     ScreenViewport,
+    StandardViewId,
     ViewCreator3d,
   } from "@itwin/core-frontend";
   import { ElementSelectionListener } from "../utils/ElementSelectionListener";
@@ -35,6 +37,8 @@ See LICENSE.md in the project root for license terms and full copyright notice.
       const viewState = await viewCreator.createDefaultView();
       const vp = ScreenViewport.create(viewPortContainer, viewState);
       IModelApp.viewManager.addViewport(vp);
+      void IModelApp.tools.run(FitViewTool.toolId, vp, true, false);
+      vp.view.setStandardRotation(StandardViewId.Iso);
     }
   };
 </script>

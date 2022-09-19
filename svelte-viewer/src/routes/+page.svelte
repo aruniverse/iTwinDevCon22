@@ -14,6 +14,7 @@ See LICENSE.md in the project root for license terms and full copyright notice.
     IModelTileRpcInterface,
   } from "@itwin/core-common";
   import { IModelApp, LocalExtensionProvider } from "@itwin/core-frontend";
+  import { ITwinLocalization } from "@itwin/core-i18n";
   import { PresentationRpcInterface } from "@itwin/presentation-common";
   import IoTMarkerExtension from "iot-marker-extension";
   import AuthClient from "../utils/clients/Authorization";
@@ -58,6 +59,9 @@ See LICENSE.md in the project root for license terms and full copyright notice.
           value: config.map?.bingKey ?? "",
         },
       },
+      localization: new ITwinLocalization({detectorOptions: {
+        order: []
+      }})
     });
     BentleyCloudRpcManager.initializeClient(
       {
