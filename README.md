@@ -4,13 +4,21 @@
 
 Code for the iTwin DevCon 2022 Session, _Extending iTwin.js Applications_, with [Caleb Shafer](https://github.com/calebmshafer) and [Arun George](https://github.com/aruniverse).
 
+In this session, we go over some practical examples of how to build apps with [iTwin.js](https://github.com/iTwin/itwinjs-core), and we will demonstrate the power of using [extensions](https://github.com/iTwin/itwinjs-core/blob/master/docs/learning/frontend/Extensions.md) to quickly add the functionality your users care about most in a reusable UI framework agnostic way.
+
 This monorepo contains:
 
 - iTwin Viewers written in:
 
   - [Vanilla TypeScript](./ts-viewer/)
+    - uses vanilla TS to interact with the DOM
   - [React](./react-viewer/)
+    - uses [React](https://reactjs.org/)
+    - uses [react-scripts](https://www.npmjs.com/package/@bentley/react-scripts), which uses [Webpack](https://webpack.js.org/) under the hood
   - [Svelte](./svelte-viewer/)
+    - uses [Svelte](https://svelte.dev/)
+    - [SvelteKit](https://kit.svelte.dev/), which uses [Vite](https://vitejs.dev/) under the hood.
+      - Note, SvelteKit is pre 1.0, and more breaking changes are expected before 1.0
 
 - Demo Extension:
   - [IoT Marker Extension](./iot-marker-extension/)
