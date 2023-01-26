@@ -1,5 +1,4 @@
-import { QueryRowFormat } from "@itwin/core-common";
-import { ExtensionHost } from "@itwin/core-extension";
+import { ExtensionHost, QueryRowFormat } from "@itwin/core-extension";
 import { SmartDeviceDecorator } from "./SmartDeviceDecorator";
 
 export class IotMarkerExtension {

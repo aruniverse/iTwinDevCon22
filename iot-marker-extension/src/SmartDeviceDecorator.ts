@@ -1,5 +1,9 @@
-import { QueryRowFormat } from "@itwin/core-common";
-import { Decorator, IModelConnection, Marker } from "@itwin/core-extension";
+import {
+  Decorator,
+  IModelConnection,
+  Marker,
+  QueryRowFormat,
+} from "@itwin/core-extension";
 import { SmartDeviceMarker } from "./SmartDeviceMarker";
 
 export class SmartDeviceDecorator implements Decorator {

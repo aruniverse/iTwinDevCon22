@@ -33,7 +33,6 @@
     "@itwin/appui-abstract": "^3.3.4",
     "@itwin/build-tools": "^3.3.4",
     "@itwin/core-bentley": "^3.3.4",
-    "@itwin/core-common": "^3.3.4",
     "@itwin/core-geometry": "^3.3.4",
     "@itwin/core-orbitgt": "^3.3.4",
     "@itwin/core-quantity": "^3.3.4",
