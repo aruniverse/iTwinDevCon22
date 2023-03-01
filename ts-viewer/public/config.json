@@ -1,14 +1,14 @@
 {
   "authorization": {
-    "clientId": "",
+    "clientId": "spa-SsRytxVFjkLuEem4ucWgGFuGD",
     "scope": "imodelaccess:read imodels:read realitydata:read",
-    "redirectUri": "http://localhost:3001/",
-    "postSignoutRedirectUri": "http://localhost:3001/",
+    "redirectUri": "http://localhost:3000/",
+    "postSignoutRedirectUri": "http://localhost:3000/logout",
     "responseType": "code",
     "authority": "https://ims.bentley.com"
   },
-  "iTwinId": "",
-  "iModelId": "",
+  "iTwinId": "a3d78a07-dd0a-4977-9504-4e902744e377",
+  "iModelId": "6cb986b1-cc6e-4112-a1f1-3928bd36932b",
   "map": {
     "bingKey": ""
   }

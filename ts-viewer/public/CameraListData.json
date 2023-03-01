@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Loading platform",
+        "description": "View of the metro from the loading platform",
+        "eyePoint": {
+            "x": 40.577498467433294,
+            "y": 17.087233666778452,
+            "z": -14.189959687635849
+        },
+        "targetPoint": {
+            "x": 59.148242193282975,
+            "y": 21.782377473113286,
+            "z": -17.052682648344852
+        },
+        "lensAngle": 45
+    },
+    {
+        "name": "Train car",
+        "description": "Inside a Metro train car",
+        "eyePoint": {
+            "x": 70.19512194804261,
+            "y": 25.191456738280518,
+            "z": -14.208965713722252
+        },
+        "targetPoint": {
+            "x": 51.68985266860455,
+            "y": 27.434776334648426,
+            "z": -14.096673941526438
+        },
+        "lensAngle": 45
+    },
+    {
+        "name": "Store Fronts",
+        "description": "Tour the shop fronts of the second floor",
+        "eyePoint": {
+            "x": 66.67529277791165,
+            "y": 12.778976127127233,
+            "z": -6.516476736616535
+        },
+        "targetPoint": {
+            "x": 62.40051111790815,
+            "y": 20.34215594607488,
+            "z": -7.814846259149066
+        },
+        "lensAngle": 45
+    },
+    {
+        "name": "Ground floor",
+        "description": "Overlook ground floor.",
+        "eyePoint": {
+            "x": 59.84762034138613,
+            "y": 16.158503683454487,
+            "z": 7.814014972277999
+        },
+        "targetPoint": {
+            "x": 29.391236306477957,
+            "y": 15.689817174463865,
+            "z": -5.874199556416398
+        },
+        "lensAngle": 45
+    }
+]

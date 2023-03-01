@@ -11,7 +11,8 @@
     "allowSyntheticDefaultImports": true
   },
   "include": [
-    "./**/*.ts"
+    "./**/*.ts",
+    "./**/*.tsx"
   ],
   "references": [
     {
