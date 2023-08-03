@@ -37,7 +37,7 @@
     "@esbuild-plugins/node-globals-polyfill": "~0.1.1",
     "@esbuild-plugins/node-modules-polyfill": "~0.1.2",
     "@sveltejs/adapter-auto": "1.0.0-next.75",
-    "@sveltejs/kit": "1.0.0-next.486",
+    "@sveltejs/kit": "1.15.2",
     "esbuild": "0.15.8",
     "rollup-plugin-copy": "3.4.0",
     "svelte": "^3.44.0",
