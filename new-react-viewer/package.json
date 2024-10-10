@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@bentley/icons-generic": "^1.0.34",
-    "@bentley/react-scripts": "^5.0.7",
     "@itwin/appui-abstract": "^4.9.4",
     "@itwin/appui-layout-react": "^4.8.3",
     "@itwin/appui-react": "^4.17.1",
@@ -49,10 +48,8 @@
     "typescript": "~5.0.2"
   },
   "scripts": {
-    "start": "react-scripts --max_old_space_size=4096 start",
-    "build": "react-scripts --max_old_space_size=4096 build",
-    "test": "react-scripts --max_old_space_size=4096 test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "NODE_OPTIONS=--max_old_space_size=4096 vite build"
   },
   "eslintConfig": {
     "extends": [
@@ -69,5 +66,11 @@
     "last 4 edge version",
     "not dead",
     "not <0.2%"
-  ]
+  ],
+  "devDependencies": {
+    "@vitejs/plugin-react-swc": "^3.7.1",
+    "sass-embedded": "^1.79.4",
+    "vite": "^5.4.8",
+    "vite-plugin-static-copy": "^2.0.0"
+  }
 }
