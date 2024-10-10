@@ -5,11 +5,27 @@
 
 import "./App.scss";
 
-import { BrowserAuthorizationClient } from "@itwin/browser-authorization";
-import { LocalExtensionProvider, ScreenViewport } from "@itwin/core-frontend";
+import type { ScreenViewport } from "@itwin/core-frontend";
 import { FitViewTool, IModelApp, StandardViewId } from "@itwin/core-frontend";
 import { FillCentered } from "@itwin/core-react";
+import { ECSchemaRpcInterface } from "@itwin/ecschema-rpcinterface-common";
 import { ProgressLinear } from "@itwin/itwinui-react";
+import {
+  MeasurementActionToolbar,
+  MeasureTools,
+  MeasureToolsUiItemsProvider,
+} from "@itwin/measure-tools-react";
+import {
+  AncestorsNavigationControls,
+  CopyPropertyTextContextMenuItem,
+  PropertyGridManager,
+  PropertyGridUiItemsProvider,
+  ShowHideNullValuesSettingsMenuItem,
+} from "@itwin/property-grid-react";
+import {
+  TreeWidget,
+  TreeWidgetUiItemsProvider,
+} from "@itwin/tree-widget-react";
 import {
   useAccessToken,
   Viewer,
@@ -19,28 +35,21 @@ import {
   ViewerStatusbarItemsProvider,
 } from "@itwin/web-viewer-react";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import IoTMarkerExtension from "iot-marker-extension";
 
+import { Auth } from "./Auth";
 import { history } from "./history";
+import { getSchemaContext, unifiedSelectionStorage } from "./selectionStorage";
 
 const App: React.FC = () => {
-  const [iModelId, setIModelId] = useState(process.env.IMJS_IMODEL_ID);
-  const [iTwinId, setITwinId] = useState(process.env.IMJS_ITWIN_ID);
+  const [iModelId, setIModelId] = useState(import.meta.env.IMJS_IMODEL_ID);
+  const [iTwinId, setITwinId] = useState(import.meta.env.IMJS_ITWIN_ID);
+  const [changesetId, setChangesetId] = useState(
+    import.meta.env.IMJS_AUTH_CLIENT_CHANGESET_ID
+  );
 
   const accessToken = useAccessToken();
 
-  const authClient = useMemo(
-    () =>
-      new BrowserAuthorizationClient({
-        scope: process.env.IMJS_AUTH_CLIENT_SCOPES ?? "",
-        clientId: process.env.IMJS_AUTH_CLIENT_CLIENT_ID ?? "",
-        redirectUri: process.env.IMJS_AUTH_CLIENT_REDIRECT_URI ?? "",
-        postSignoutRedirectUri: process.env.IMJS_AUTH_CLIENT_LOGOUT_URI,
-        responseType: "code",
-        authority: process.env.IMJS_AUTH_AUTHORITY,
-      }),
-    []
-  );
+  const authClient = Auth.getClient();
 
   const login = useCallback(async () => {
     try {
@@ -55,35 +64,30 @@ const App: React.FC = () => {
   }, [login]);
 
   useEffect(() => {
-    if (accessToken) {
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.has("iTwinId")) {
-        setITwinId(urlParams.get("iTwinId") as string);
-      } else {
-        if (!process.env.IMJS_ITWIN_ID) {
-          throw new Error(
-            "Please add a valid iTwin ID in the .env file and restart the application or add it to the iTwinId query parameter in the url and refresh the page. See the README for more information."
-          );
-        }
-      }
-
-      if (urlParams.has("iModelId")) {
-        setIModelId(urlParams.get("iModelId") as string);
-      } else {
-        if (!process.env.IMJS_IMODEL_ID) {
-          throw new Error(
-            "Please add a valid iModel ID in the .env file and restart the application or add it to the iModelId query parameter in the url and refresh the page. See the README for more information."
-          );
-        }
-      }
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has("iTwinId")) {
+      setITwinId(urlParams.get("iTwinId") as string);
     }
-  }, [accessToken]);
+    if (urlParams.has("iModelId")) {
+      setIModelId(urlParams.get("iModelId") as string);
+    }
+    if (urlParams.has("changesetId")) {
+      setChangesetId(urlParams.get("changesetId") as string);
+    }
+  }, []);
 
   useEffect(() => {
-    if (accessToken && iTwinId && iModelId) {
-      history.push(`?iTwinId=${iTwinId}&iModelId=${iModelId}`);
+    let url = `viewer?iTwinId=${iTwinId}`;
+
+    if (iModelId) {
+      url = `${url}&iModelId=${iModelId}`;
     }
-  }, [accessToken, iTwinId, iModelId]);
+
+    if (changesetId) {
+      url = `${url}&changesetId=${changesetId}`;
+    }
+    history.push(url);
+  }, [iTwinId, iModelId, changesetId]);
 
   /** NOTE: This function will execute the "Fit View" tool after the iModel is loaded into the Viewer.
    * This will provide an "optimal" view of the model. However, it will override any default views that are
@@ -98,7 +102,7 @@ const App: React.FC = () => {
         const intvl = setInterval(() => {
           if (viewPort.areAllTileTreesLoaded) {
             ViewerPerformance.addMark("TilesLoaded");
-            void ViewerPerformance.addMeasure(
+            ViewerPerformance.addMeasure(
               "TileTreesLoaded",
               "ViewerStarting",
               "TilesLoaded"
@@ -126,6 +130,14 @@ const App: React.FC = () => {
     [viewConfiguration]
   );
 
+  const onIModelAppInit = useCallback(async () => {
+    // iModel now initialized
+    await TreeWidget.initialize();
+    await PropertyGridManager.initialize();
+    await MeasureTools.startup();
+    MeasurementActionToolbar.setDefaultActionProvider();
+  }, []);
+
   return (
     <div className="viewer-container">
       {!accessToken && (
@@ -138,15 +150,54 @@ const App: React.FC = () => {
       <Viewer
         iTwinId={iTwinId ?? ""}
         iModelId={iModelId ?? ""}
+        changeSetId={changesetId}
         authClient={authClient}
         viewCreatorOptions={viewCreatorOptions}
         enablePerformanceMonitors={true} // see description in the README (https://www.npmjs.com/package/@itwin/web-viewer-react)
+        onIModelAppInit={onIModelAppInit}
+        mapLayerOptions={{
+          BingMaps: {
+            key: "key",
+            value: import.meta.env.IMJS_BING_MAPS_KEY ?? "",
+          },
+        }}
+        backendConfiguration={{
+          defaultBackend: {
+            rpcInterfaces: [ECSchemaRpcInterface],
+          },
+        }}
         uiProviders={[
           new ViewerNavigationToolsProvider(),
-          new ViewerContentToolsProvider(),
+          new ViewerContentToolsProvider({
+            vertical: {
+              measureGroup: false,
+            },
+          }),
           new ViewerStatusbarItemsProvider(),
+          new TreeWidgetUiItemsProvider(),
+          new PropertyGridUiItemsProvider({
+            propertyGridProps: {
+              autoExpandChildCategories: true,
+              ancestorsNavigationControls: (props) => (
+                <AncestorsNavigationControls {...props} />
+              ),
+              contextMenuItems: [
+                (props) => <CopyPropertyTextContextMenuItem {...props} />,
+              ],
+              settingsMenuItems: [
+                (props) => (
+                  <ShowHideNullValuesSettingsMenuItem
+                    {...props}
+                    persist={true}
+                  />
+                ),
+              ],
+            },
+          }),
+          new MeasureToolsUiItemsProvider(),
         ]}
-        extensions={[new LocalExtensionProvider(IoTMarkerExtension)]}
+        selectionStorage={unifiedSelectionStorage}
+        getSchemaContext={getSchemaContext}
       />
     </div>
   );

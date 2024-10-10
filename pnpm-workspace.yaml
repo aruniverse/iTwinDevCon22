@@ -1,6 +1,6 @@
 packages:
   - "iot-marker-extension"
-  - "react-viewer"
   - "ts-viewer"
+  - "react-viewer"
+  - "new-react-viewer"
   - "svelte-viewer"
-  

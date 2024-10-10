@@ -1,47 +1,30 @@
 {
-  "name": "typescript-viewer",
-  "version": "0.0.1",
+  "name": "new-ts-viewer",
   "private": true,
-  "description": "Using the iTwin Viewer with Typescript",
-  "license": "MIT",
-  "author": {
-    "name": "Bentley Systems, Inc.",
-    "url": "http://www.bentley.com"
-  },
+  "version": "0.0.0",
   "type": "module",
-  "main": "./index.ts",
   "scripts": {
-    "build": "run-p build:**",
-    "build:tsc": "tsc --project . 1>&2",
-    "build:esbuild": "node esbuild.js",
-    "build:assets": "node ./scripts/copyAssets.js",
-    "serve": "serve -l 3001 ./public",
-    "watch": "run-p \"build:** --watch\"",
-    "start": "run-p watch serve"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@bentley/icons-generic-webfont": "^1.0.15",
-    "@itwin/appui-abstract": "^3.3.4",
-    "@itwin/browser-authorization": "^0.5.1",
-    "@itwin/core-bentley": "^3.3.4",
-    "@itwin/core-common": "^3.3.4",
-    "@itwin/core-frontend": "^3.3.4",
-    "@itwin/core-geometry": "^3.3.4",
-    "@itwin/core-orbitgt": "^3.3.4",
-    "@itwin/core-quantity": "^3.3.4",
-    "@itwin/imodels-access-frontend": "^1.0.1",
-    "@itwin/imodels-client-management": "^1.0.1",
-    "@itwin/presentation-common": "^3.3.4",
-    "@itwin/webgl-compatibility": "^3.3.4",
-    "iot-marker-extension": "workspace:*"
+    "@itwin/appui-abstract": "^4.9.4",
+    "@itwin/core-bentley": "^4.9.4",
+    "@itwin/core-common": "^4.9.4",
+    "@itwin/core-frontend": "^4.9.4",
+    "@itwin/core-geometry": "^4.9.4",
+    "@itwin/core-orbitgt": "^4.9.4",
+    "@itwin/core-quantity": "^4.9.4",
+    "@itwin/ecschema-metadata": "^4.9.4",
+    "@itwin/ecschema-rpcinterface-common": "^4.9.4",
+    "@itwin/imodels-access-frontend": "^5.2.3",
+    "@itwin/presentation-common": "^4.9.4",
+    "@itwin/presentation-frontend": "^4.9.4"
   },
   "devDependencies": {
-    "@esbuild-plugins/node-globals-polyfill": "~0.1.1",
-    "@esbuild-plugins/node-modules-polyfill": "~0.1.2",
-    "cpx2": "4.2.0",
-    "esbuild": "0.15.8",
-    "npm-run-all": "^4.1.5",
-    "serve": "^13.0.2",
-    "typescript": "~4.4.0"
+    "typescript": "^5.5.3",
+    "vite": "^5.4.8",
+    "vite-plugin-static-copy": "^2.0.0"
   }
 }
