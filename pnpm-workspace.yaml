@@ -3,4 +3,4 @@ packages:
   - "react-viewer"
   - "ts-viewer"
   - "svelte-viewer"
-  
+  - "new-ts-viewer"
