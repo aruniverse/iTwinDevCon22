@@ -14,8 +14,7 @@
   "license": "MIT",
   "author": "",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
-    "postinstall": "pnpm --filter iot-marker-extension build"
+    "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
     "cospace": "latest"
